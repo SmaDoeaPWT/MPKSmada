@@ -45,25 +45,24 @@
             padding: 1rem 2rem;
         }
 
-        .nav-container2 {
-            max-width: 1000px;
-            margin: 0 auto;
+        .logo-container {
             display: flex;
             align-items: center;
-            padding: 1rem 2rem;
+            gap: 10px;
         }
 
         .logo {
-            display: table;
-        }
-
-        .logo2 {
             display: flex;
-            color:#2980b9;
+            transition: all 0.3s ease;
         }
 
-        .img_deg  {
-        float: left;
+        .logo img {
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .header.scrolled .logo {
@@ -629,6 +628,15 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .logo-container {
+                gap: 5px;
+            }
+            
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
         }
 
         /* Animations */
@@ -706,9 +714,10 @@
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <a href="#" class="logo"><img src="Image/Sman2.png" width="50px" height="50px" style="border-radius: 50%">
-            
-            <a href="#" class="logo"><img src="Image/MPK2.png" width="60px" height="56px" style="border-radius: 50%">
+            <div class="logo-container">
+                <a href="#" class="logo"><img src="Image/Sman2.png" width="50" height="50" alt="Logo SMAN 2"></a>
+                <a href="#" class="logo"><img src="Image/MPK2.png" width="60" height="56" alt="Logo MPK"></a>
+            </div>
             <nav> 
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="Beranda.html" class="nav-link">Beranda</a></li>
