@@ -741,9 +741,61 @@
         .about-content:nth-child(4) {
             animation-delay: 0.4s;
         }
+
+                /* Page specific styles */
+        .page-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #5f010d, #781f19);
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 0.5rem;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: "›";
+            margin-left: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">Informasi</h1>
+        <ul class="breadcrumb">
+            <li><a href="Beranda.html">Beranda</a></li>
+            <li>Informasi</li>
+        </ul>
+    </div>
+
+
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
@@ -765,10 +817,6 @@
 
     <!-- About Section -->
     <section class="section" id="about">
-        <br>
-        <br>
-        <br>
-        <h2 class="section-title">Informasi</h2>
         <div class="about2">
             <div class="about-content2">
                 <div class="about-text2">
@@ -785,11 +833,11 @@
                     <h3>Komisi A</h3>
                     <p>OPPK (Organisasi Pendidikan Politik dan Kepemimpinan) merupakan wadah bagi siswa yang memiliki minat dalam bidang kepemimpinan, organisasi, dan pengembangan diri.</p>
                     <ul class="unit-list">
-                        <li>Coscoda</li>
-                        <li>Pramuka</li>
-                        <li>Paspara</li>
-                        <li>Smart Kir</li>
                         <li>OSIS</li>
+                        <li>Paspara</li>
+                        <li>Pramuka</li>
+                        <li>Coscoda</li>
+                        <li>Smart Kir</li>
                     </ul>
                 </div>
             </div>
@@ -800,9 +848,9 @@
                     <h3>Komisi B</h3>
                     <p>KJDK (Kesehatan Jasmani dan Daya Kreasi) menaungi unit-unit yang bergerak di bidang kesehatan, olahraga, dan kreativitas serta KK (Keterampilan Kewirausahaan) merupakan bidang yang fokus pada pengembangan jiwa kewirausahaan siswa.</p>
                     <ul class="unit-list">
-                        <li>PMR (Palang Merah Remaja)</li>
-                        <li>PIK-R (Pusat Informasi dan Konseling Remaja)</li>
-                        <li>Merpati Putih (MP)</li>
+                        <li>PMR</li>
+                        <li>PIK-R</li>
+                        <li>Merpati Putih</li>
                         <li>Bola Smada</li>
                         <li>Basket</li>
                     </ul>
@@ -816,9 +864,9 @@
                     <p>KBPL (Kepribadian Budi Pekerti Luhur) fokus pada pembentukan karakter siswa yang berakhlak mulia. KTTYME (Ketaqwaan Terhadap Tuhan Yang Maha Esa) menaungi kegiatan keagamaan yang membina iman dan spiritualitas siswa dari berbagai agama.</p>
                     <ul class="unit-list">
                         <li>Adiwiyata</li>
-                        <li>Rohis (Islam)</li>
-                        <li>Rohkris (Kristen)</li>
-                        <li>Rohkat (Katolik)</li>
+                        <li>Rohis</li>
+                        <li>Rohkris</li>
+                        <li>Rohkat</li>
                     </ul>
                 </div>
             </div>
@@ -829,14 +877,14 @@
                     <h3>Komisi D</h3>
                     <p>PAKS (Presepsi Apresiasi Kreasi Seni) mewadahi berbagai ekspresi seni dan media kreatif siswa. PPBN (Pendidikan Pendahuluan Bela Negara) adalah bidang yang berfokus pada penanaman nilai nasionalisme dan bela negara.</p>
                     <ul class="unit-list">
-                        <li>Excel (Desain dan Multimedia)</li>
-                        <li>Teater Pijar (Drama)</li>
+                        <li>Excelciors</li>
+                        <li>Teater Pijar</li>
                         <li>Esbanda</li>
                         <li>Esvo</li>
-                        <li>Sekarnada (Musik)</li>
+                        <li>Sekarnada</li>
                         <li>FOS</li>
                         <li>JUMP</li>
-                        <li>CHAOS (Redaksi dan Media)</li>
+                        <li>CHAOS</li>
                     </ul>
                 </div>
             </div>
@@ -912,3 +960,4 @@
     </script>
 </body>
 </html>
+
