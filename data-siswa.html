@@ -15,8 +15,8 @@
         
         body {
             background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
         }
 
         /* Header & Navigation */
@@ -46,11 +46,28 @@
             padding: 1rem 2rem;
         }
 
-        .logo2 {
-            display: table;
+        /* PERUBAHAN: Container untuk logo berdekatan */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .header.scrolled .logo2 {
+        .logo {
+            display: flex;
+            transition: all 0.3s ease;
+        }
+
+        .logo img {
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .header.scrolled .logo {
             color: #2c3e50;
             text-shadow: none;
         }
@@ -111,6 +128,7 @@
             cursor: pointer;
             color: white;
             transition: all 0.3s ease;
+            z-index: 1001;
         }
 
         .header.scrolled .mobile-menu-toggle {
@@ -144,7 +162,7 @@
         }
 
         .data-header h1 {
-            color: #333;
+            color:  #333;
             font-size: 32px;
             margin-bottom: 10px;
             font-weight: 700;
@@ -213,34 +231,46 @@
             margin-right: 8px;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
-                flex-direction: column;
-                gap: 1rem;
-                position: absolute;
-                top: 100%;
-                left: 0;
+                position: fixed;
+                top: 80px;
+                left: -100%;
                 width: 100%;
-                background: rgb(110, 1, 1);
-                padding: 1rem;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
             }
 
             .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
+                left: 0;
             }
 
-            .header.scrolled .nav-menu {
-                background: rgba(255, 255, 255, 0.95);
+            .nav-menu .nav-link {
+                color: #2c3e50;
+                text-shadow: none;
+                font-size: 1.2rem;
+                padding: 1rem 0;
             }
 
             .mobile-menu-toggle {
                 display: block;
+            }
+            
+            .logo-container {
+                gap: 5px;
+            }
+            
+            .logo img {
+                width: 40px;
+                height: 40px;
             }
 
             th, td {
@@ -278,9 +308,11 @@
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <a href="#" class="logo2"><img src="Image/Sman2.png" width="50px" height="50px" style="border-radius: 50%">
-            
-            <a href="#" class="logo2"><img src="Image/MPK2.png" width="60px" height="56px" style="border-radius: 50%">
+            <!-- PERUBAHAN: Container untuk logo berdekatan -->
+            <div class="logo-container">
+                <a href="#" class="logo"><img src="Image/Sman2.png" width="50" height="50" alt="Logo SMAN 2"></a>
+                <a href="#" class="logo"><img src="Image/MPK2.png" width="60" height="56" alt="Logo MPK"></a>
+            </div>
             <nav> 
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="Beranda.html" class="nav-link">Beranda</a></li>
@@ -313,13 +345,9 @@
                 <!-- Data akan diisi oleh JavaScript -->
             </tbody>
         </table>
-        
-        <div class="note">
-            <p><strong>Catatan:</strong> Data ini diambil dari file "REKAP DATA BCMPK'20 DAN NIS 2-2.xlsx".</p>
-        </div>
 
-        <a href="Pengumuman.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Kembali ke Halaman Login
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke Halaman Sebelumnya
         </a>
     </div>
 
@@ -346,7 +374,7 @@
             { no: 18, nis: "25249", name: "Alyya Azka Sarifah", class: "X-3", status: "LOLOS" },
             { no: 19, nis: "25250", name: "Angelina Devin Suntoro", class: "X-3", status: "LOLOS" },
             { no: 20, nis: "25253", name: "Avisa Marva Athaya", class: "X-3", status: "TIDAK LOLOS" },
-            { no: 21, nis: "25255", name: "Bilqis Ihdaa Ni'amii", class: "X-3", status: "TIDAK LOLOS" },
+            { no: 21, nis: "25255", name: "Bilqis Ihdaa Ni'amii", class: "X-3", status: "LOLOS" },
             { no: 22, nis: "25274", name: "Safira Asari Eka Putri", class: "X-3", status: "TIDAK LOLOS" },
             { no: 23, nis: "25279", name: "Zalfa Muna Azizah", class: "X-3", status: "TIDAK LOLOS" },
             { no: 24, nis: "25287", name: "Ardhitya Bagus Aji Saputra", class: "X-4", status: "TIDAK LOLOS" },
@@ -385,7 +413,7 @@
             { no: 57, nis: "25445", name: "Labib Noval Apriliano", class: "X-8", status: "TIDAK LOLOS" },
             { no: 58, nis: "25450", name: "Renaisans Vedanada", class: "X-8", status: "TIDAK LOLOS" },
             { no: 59, nis: "25457", name: "Anissa Oktafiana Putri", class: "X-9", status: "TIDAK LOLOS" },
-            { no: 60, nis: "25465", name: "Delicia Taffy Fitrian", class: "X-9", status: "LOLOS" },
+            { no: 60, nis: "25465", name: "Delicia Taffy Fitrian", class: "X-9", status: "TIDAK LOLOS" },
             { no: 61, nis: "25469", name: "Haidar Al Aziia", class: "X-9", status: "TIDAK LOLOS" },
             { no: 62, nis: "25474", name: "Khonsa Tsabita Khoirunnisa", class: "X-9", status: "LOLOS" },
             { no: 63, nis: "25481", name: "Nurlita", class: "X-9", status: "TIDAK LOLOS" },
@@ -419,16 +447,43 @@
                     <td>${student.nis || '-'}</td>
                     <td>${student.name}</td>
                     <td>${student.class}</td>
-                    <!-- Kolom Status dihilangkan -->
                 `;
                 
                 tableBody.appendChild(row);
             });
         }
 
-        // Toggle menu mobile
-        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-            document.getElementById('nav-menu').classList.toggle('active');
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            // Mengubah ikon hamburger menjadi X ketika menu aktif
+            if (navMenu.classList.contains('active')) {
+                this.innerHTML = '✕';
+            } else {
+                this.innerHTML = '☰';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.innerHTML = '☰';
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
 
         // Mengisi tabel data siswa saat halaman dimuat
