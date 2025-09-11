@@ -57,8 +57,16 @@
             padding: 1rem 2rem;
         }
 
+        /* PERUBAHAN: Container untuk logo berdekatan */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .logo2 {
-            display: table;
+            display: flex;
+            align-items: center;
         }
 
         .img_deg  {
@@ -631,9 +639,11 @@
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <a href="#" class="logo2"><img src="Image/Sman2.png" width="50px" height="50px" style="border-radius: 50%">
-            
-            <a href="#" class="logo2"><img src="Image/MPK2.png" width="60px" height="56px" style="border-radius: 50%">
+            <!-- PERUBAHAN: Menambahkan container untuk logo berdekatan -->
+            <div class="logo-container">
+                <a href="#" class="logo2"><img src="Image/Sman2.png" width="50px" height="50px" style="border-radius: 50%"></a>
+                <a href="#" class="logo2"><img src="Image/MPK2.png" width="60px" height="56px" style="border-radius: 50%"></a>
+            </div>
             <nav> 
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="Beranda.html" class="nav-link">Beranda</a></li>
@@ -1014,4 +1024,5 @@
         });
     </script>
 </body>
+
 </html>
