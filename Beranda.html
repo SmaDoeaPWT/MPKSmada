@@ -17,6 +17,7 @@
             color: #333;
             background: #f8f9fa;
         }
+        
 
         /* Header & Navigation */
         .header {
@@ -48,21 +49,15 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 10px; /* Menambahkan jarak antara dua logo */
         }
 
         .logo {
             display: flex;
-            transition: all 0.3s ease;
         }
 
         .logo img {
             border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
         }
 
         .header.scrolled .logo {
@@ -132,12 +127,11 @@
             color: #dd463c;
         }
 
-
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(52, 152, 219, 0.7)), 
-                        url(sma2.jpg);
+            background: linear-gradient(rgba(83, 6, 16, 0.5), rgba(83, 6, 16, 0.6)), 
+                        url(Image/sma2.jpg);
             background-size: cover;
             background-position: center;
             display: flex;
@@ -154,16 +148,25 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .herop2 {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            text-align: left;
         }
 
         .cta-button {
@@ -172,7 +175,7 @@
             color: white;
             padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 30px;
+            borderRadius: 30px;
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
@@ -213,126 +216,33 @@
         }
 
         /* About Section */
-        .about2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .about {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 3rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
-        
-        .about {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
 
         .about-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);      
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            transition: width 0.3s ease;
-        }
-
-        .about-content:nth-child(1)::before {
-            background: linear-gradient(45deg, #3498db, #2980b9);
-        }
-
-        .about-content:nth-child(2)::before {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-        }
-
-        .about-content:nth-child(3)::before {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
-        }
-
-        .about-content:nth-child(4)::before {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
-        }
-
-        .about-content:hover::before {
-            width: 100%;
-            opacity: 0.1;
-        }
-
-        .about-content:hover {
-            transform: translateY(-5px);
-        }
-
-        .about-content2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
-            padding: 2rem;
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             color: #2c3e50;
-            position: relative;
-            display: inline-block;
-        }
-
-        .about-text h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            border-radius: 2px;
-        }
-
-        .about-content:nth-child(2) .about-text h3::after {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-        }
-
-        .about-content:nth-child(3) .about-text h3::after {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
-        }
-
-        .about-content:nth-child(4) .about-text h3::after {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
         }
 
         .about-text p {
             margin-bottom: 1rem;
             color: #666;
             font-size: 1.1rem;
-            line-height: 1.7;
         }
 
-        .about-text2 h3 {
-            font-size: 1.9rem;
-            margin-bottom: 1rem;
-            color: #000000;
-        }
-        
-        .about-text2 p {
-            margin-bottom: 1rem;
-            color: #000000;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            text-align: center;
-        }
-        
         .about-image {
             height: 300px;
             background: linear-gradient(45deg, #3498db, #2980b9);
@@ -536,6 +446,8 @@
             color: white;
             padding: 3rem 0 1rem;
             margin-top: 3rem;
+            display: flex
+            
         }
 
         .footer-content {
@@ -565,27 +477,49 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid #34495e;
+            border-top: 1px solid #ffffff;
             margin-top: 2rem;
             padding-top: 1rem;
             text-align: center;
             color: #bdc3c7;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* New Styles for Information Section */
-        .info-highlight {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
+        /* New Styles for Announcement Section */
+        .announcement-container {
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            text-align: center;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .commission-badge {
-            position: absolute;
-            top: -10px;
-            right: -10px;
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step-card {
+            display: flex;
+            align-items: flex-start;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .step-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
             background: linear-gradient(45deg, #e74c3c, #c0392b);
             color: white;
             width: 40px;
@@ -595,40 +529,33 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-right: 1.5rem;
+            flex-shrink: 0;
         }
 
-        .unit-list {
-            text-align: left;
-            margin-top: 1rem;
-            padding-left: 1.5rem;
+        .step-content {
+            flex: 1;
         }
 
-        .unit-list li {
+        .step-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
             margin-bottom: 0.5rem;
-            color: #555;
-            position: relative;
         }
 
-        .unit-list li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
+        .step-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #856404;
             display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .about-content:nth-child(2) .unit-list li::before {
-            color: #e74c3c;
-        }
-
-        .about-content:nth-child(3) .unit-list li::before {
-            color: #2ecc71;
-        }
-
-        .about-content:nth-child(4) .unit-list li::before {
-            color: #9b59b6;
+            margin: 0.2rem 0;
         }
 
         /* Responsive Design */
@@ -689,24 +616,15 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .about2 {
-                padding: 1.5rem;
+            .step-card {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
-            .about-content {
-                padding: 1.5rem;
-            }
-            
-            .logo-container {
-                gap: 5px;
-            }
-            
-            .logo img {
-                width: 40px;
-                height: 40px;
+            .step-number {
+                margin-bottom: 1rem;
             }
         }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -720,26 +638,30 @@
         }
 
         .service-card,
-        .about-content,
-        .contact {
+        .about,
+        .contact,
+        .step-card {
             animation: fadeInUp 0.6s ease-out;
         }
         
-        /* Staggered animation for commission cards */
-        .about-content:nth-child(1) {
-            animation-delay: 0.1s;
+        .announcement-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            position: relative;
         }
         
-        .about-content:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .about-content:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-        
-        .about-content:nth-child(4) {
-            animation-delay: 0.4s;
+        .announcement-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            border-radius: 2px;
         }
     </style>
 </head>
@@ -747,9 +669,10 @@
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <a href="#" class="logo"><img src="Image/Sman2.png" width="50px" height="50px" style="border-radius: 50%">
-            
-            <a href="#" class="logo"><img src="Image/MPK2.png" width="60px" height="56px" style="border-radius: 50%">
+            <div class="logo-container">
+                <a href="#" class="logo"><img src="Image/Sman2.png" width="50px" height="50px" style="border-radius: 50%"></a>
+                <a href="#" class="logo"><img src="Image/MPK2.png" width="60px" height="56px" style="border-radius: 50%"></a>
+            </div>
             <nav> 
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="Beranda.html" class="nav-link">Beranda</a></li>
@@ -849,7 +772,7 @@
         // Form submission
         document.querySelector('form')?.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
+            alert('Terima kasih! Pesan Anda telah dikirim. Kami akan secera menghubungi Anda.');
             this.reset();
         });
 
