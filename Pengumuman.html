@@ -57,6 +57,88 @@
             padding: 1rem 2rem;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Logo akan lebih berdekatan */
+        }
+
+        .logo2 {
+            display: flex;
+            color:#2980b9;
+        }
+
+        .img_deg  {
+        float: left;
+        }
+
+        .header.scrolled .logo {
+            color: #2c3e50;
+            text-shadow: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .header.scrolled .nav-link {
+            color: #2c3e50;
+            text-shadow: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #ffffff, #e74c3c);
+            transition: width 0.3s ease;
+        }
+
+        .header.scrolled .nav-link::after {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
+        .header.scrolled .nav-link:hover {
+            color: #3498db;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .mobile-menu-toggle {
+            color: #dd463c;
+        }
+
         /* PERUBAHAN: Container untuk logo berdekatan */
         .logo-container {
             display: flex;
@@ -140,6 +222,46 @@
             color: #dd463c;
         }
 
+        /* Styling untuk mobile menu */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(110, 1, 1, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                gap: 1.5rem;
+            }
+            
+            .header.scrolled .nav-menu {
+                background: rgba(255, 255, 255, 0.98);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                z-index: 1001;
+            }
+            
+            .nav-link {
+                font-size: 1.2rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .header.scrolled .nav-link {
+                color: #2c3e50;
+            }
+        }
         
         .container {
             display: flex;
@@ -665,7 +787,6 @@
                 <div class="popup-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <div class="watermark">LOLOS</div>
             </div>
             <div class="student-info">
                 <h3>SELAMAT! ANDA DINYATAKAN LOLOS</h3>
@@ -695,7 +816,6 @@
                 <div class="popup-icon">
                     <i class="fas fa-times-circle"></i>
                 </div>
-                <div class="watermark">GAGAL</div>
             </div>
             <div class="student-info">
                 <h3>MAAF! ANDA DINYATAKAN TIDAK LOLOS</h3>
@@ -743,7 +863,6 @@
             </div>
             <div class="login-header">
                 <h1>Login Siswa BCMPK'20</h1>
-                <p>Masukkan nama dan NIS Anda untuk mengakses sistem</p>
             </div>
             
             <form id="loginForm">
@@ -817,7 +936,7 @@
             { no: 18, nis: "25249", name: "Alyya Azka Sarifah", class: "X-3", status: "LOLOS" },
             { no: 19, nis: "25250", name: "Angelina Devin Suntoro", class: "X-3", status: "LOLOS" },
             { no: 20, nis: "25253", name: "Avisa Marva Athaya", class: "X-3", status: "TIDAK LOLOS" },
-            { no: 21, nis: "25255", name: "Bilqis Ihdaa Ni'amii", class: "X-3", status: "TIDAK LOLOS" },
+            { no: 21, nis: "25255", name: "Bilqis Ihdaa Ni'amii", class: "X-3", status: "LOLOS" },
             { no: 22, nis: "25274", name: "Safira Asari Eka Putri", class: "X-3", status: "TIDAK LOLOS" },
             { no: 23, nis: "25279", name: "Zalfa Muna Azizah", class: "X-3", status: "TIDAK LOLOS" },
             { no: 24, nis: "25287", name: "Ardhitya Bagus Aji Saputra", class: "X-4", status: "TIDAK LOLOS" },
@@ -856,7 +975,7 @@
             { no: 57, nis: "25445", name: "Labib Noval Apriliano", class: "X-8", status: "TIDAK LOLOS" },
             { no: 58, nis: "25450", name: "Renaisans Vedanada", class: "X-8", status: "TIDAK LOLOS" },
             { no: 59, nis: "25457", name: "Anissa Oktafiana Putri", class: "X-9", status: "TIDAK LOLOS" },
-            { no: 60, nis: "25465", name: "Delicia Taffy Fitrian", class: "X-9", status: "LOLOS" },
+            { no: 60, nis: "25465", name: "Delicia Taffy Fitrian", class: "X-9", status: "TIDAK LOLOS" },
             { no: 61, nis: "25469", name: "Haidar Al Aziia", class: "X-9", status: "TIDAK LOLOS" },
             { no: 62, nis: "25474", name: "Khonsa Tsabita Khoirunnisa", class: "X-9", status: "LOLOS" },
             { no: 63, nis: "25481", name: "Nurlita", class: "X-9", status: "TIDAK LOLOS" },
@@ -1022,7 +1141,32 @@
                 this.classList.remove('input-error');
             }
         });
+
+        // Fungsi untuk toggle mobile menu
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+            
+            // Ubah ikon tombol
+            if (navMenu.classList.contains('active')) {
+                this.innerHTML = '✕';
+            } else {
+                this.innerHTML = '☰';
+            }
+        });
+
+        // Tutup menu mobile saat mengklik link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const navMenu = document.getElementById('nav-menu');
+                const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+                
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.innerHTML = '☰';
+                }
+            });
+        });
     </script>
 </body>
-
 </html>
