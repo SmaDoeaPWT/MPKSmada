@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPK-SMADA</title>
+    <title>Data Siswa BCMPK'20</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
-
+        
         body {
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
         }
 
         /* Header & Navigation */
@@ -37,7 +38,7 @@
         }
 
         .nav-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -45,6 +46,7 @@
             padding: 1rem 2rem;
         }
 
+        /* PERUBAHAN: Container untuk logo berdekatan */
         .logo-container {
             display: flex;
             align-items: center;
@@ -126,445 +128,107 @@
             cursor: pointer;
             color: white;
             transition: all 0.3s ease;
+            z-index: 1001;
         }
 
         .header.scrolled .mobile-menu-toggle {
             color: #dd463c;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(52, 152, 219, 0.7)), 
-                        url(sma2.jpg);
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
-        }
-
-        /* Sections */
-        .section {
-            padding: 5rem 0;
+        .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .about-image {
-            height: 300px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 100px auto 50px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
             position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
+        .container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d);
         }
 
-        .service-card:hover::before {
-            transform: scaleX(1);
+        .data-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .data-header h1 {
+            color:  #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
-        .service-icon {
+        .data-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        table {
             width: 100%;
-            height: 200px;
-            overflow: hidden;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .note {
+            background-color: #fff9e6;
+            padding: 15px;
             border-radius: 10px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            border-left: 4px solid #fdbb2d;
         }
 
-        .service-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover .service-icon img {
-            transform: scale(1.05);
-        }
-
-        .service-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            position: relative;
+        .back-btn {
             display: inline-block;
-        }
-
-        .service-card h4::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            transition: width 0.3s ease;
-        }
-
-        .service-card:hover h4::after {
-            width: 50%;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, #5f010d, #781f19);
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
             color: white;
-            padding: 4rem 0;
-            margin: 3rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            background-size: cover;
-            background-position: bottom;
-            opacity: 0.1;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .contact-details h4 {
-            color: #dd463c;
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-details p {
-            color: #666;
-            margin: 0;
-        }
-
-        .contact-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            color: white;
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: rgb(110, 1, 1);
-            color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #3498db;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #bdc3c7;
             text-decoration: none;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .footer-section a:hover {
-            color: #3498db;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #34495e;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            text-align: center;
-            color: #bdc3c7;
-        }
-
-        .footer-bottom button {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            border-radius: 8px;
             font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(26, 42, 108, 0.3);
         }
 
-        .footer-bottom button:hover {
+        .back-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 6px 15px rgba(26, 42, 108, 0.4);
+        }
+
+        .back-btn i {
+            margin-right: 8px;
         }
 
         /* Responsive Design */
@@ -585,6 +249,10 @@
                 border-top: 1px solid rgba(0, 0, 0, 0.1);
             }
 
+            .nav-menu.active {
+                left: 0;
+            }
+
             .nav-menu .nav-link {
                 color: #2c3e50;
                 text-shadow: none;
@@ -592,41 +260,8 @@
                 padding: 1rem 0;
             }
 
-            .nav-menu.active {
-                left: 0;
-            }
-
             .mobile-menu-toggle {
                 display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
             }
             
             .logo-container {
@@ -637,76 +272,35 @@
                 width: 40px;
                 height: 40px;
             }
+
+            th, td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 20px;
+                margin: 80px auto 30px;
+            }
+
+            .data-header h1 {
+                font-size: 28px;
+            }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @media (max-width: 480px) {
+            th, td {
+                padding: 6px 8px;
+                font-size: 12px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        .service-card,
-        .about,
-        .contact {
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        /* Additional animations */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        /* Page specific styles */
-        .page-header {
-            padding: 120px 0 60px;
-            text-align: center;
-            background: linear-gradient(135deg, #5f010d, #781f19);
-            color: white;
-            margin-bottom: 3rem;
-        }
-        
-        .page-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        
-        .breadcrumb li {
-            margin: 0 0.5rem;
-        }
-        
-        .breadcrumb li:not(:last-child)::after {
-            content: "›";
-            margin-left: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .breadcrumb a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .breadcrumb a:hover {
-            color: white;
-            text-decoration: underline;
+            .container {
+                padding: 15px;
+            }
+
+            .data-header h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -714,6 +308,7 @@
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
+            <!-- PERUBAHAN: Container untuk logo berdekatan -->
             <div class="logo-container">
                 <a href="#" class="logo"><img src="Image/Sman2.png" width="50" height="50" alt="Logo SMAN 2"></a>
                 <a href="#" class="logo"><img src="Image/MPK2.png" width="60" height="56" alt="Logo MPK"></a>
@@ -729,121 +324,157 @@
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
         </div>
     </header>
-    
-    <!-- Page Header -->
-    <div class="page-header">
-        <h1 class="page-title">Tentang Kami</h1>
-        <ul class="breadcrumb">
-            <li><a href="Beranda.html">Beranda</a></li>
-            <li>Tentang Kami</li>
-        </ul>
+
+    <div class="container">
+        <div class="data-header">
+            <h1><i class="fas fa-table"></i> Data Siswa BCMPK'20</h1>
+            <p>Berikut adalah data nama dan NIS siswa BCMPK'20</p>
+        </div>
+        
+        <table id="studentsTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>NIS</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <!-- Kolom Status dihilangkan -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data akan diisi oleh JavaScript -->
+            </tbody>
+        </table>
+
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke Halaman Sebelumnya
+        </a>
     </div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <img class="img_deg" src="Image/MPK2.png" width="250px" height="240px" style="border-radius: 50%">
-                <div class="stat-number pulse" style="color: #fff; margin-top: 1rem;">MPK SMADA</div>
-                <h2 style="margin: 1rem 0;">PENGERTIAN</h2>
-                <div class="stat-label">Musyawarah Perwakilan Kelas (MPK) merupakan suatu organisasi di SMA Negeri 2 Purwokerto yang bertugas menyalurkan aspirasi dari seluruh warga sekolah dan mengevaluasi setiap program kerja ekstrakurikuler serta organisasi yang ada di SMA Negeri 2 Purwokerto.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <h2 class="section-title">Program Kerja</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><img src="Image/PILKAOS.JPG" alt="PILKAOS"></div>
-                <h4>PILKAOS</h4>
-                <p>Pemilihan Ketua OSIS, adalah program kerja yang ada di MPK untuk memilih ketua OSIS di SMA Negeri 2 Purwokerto dengan menggunakan suara seluruh warga sekolah.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><img src="Image/FORKSA.jpg" alt="FORKSA"></div>
-                <h4>FORKSA</h4>
-                <p>Forum Komunikasi Sekolah, adalah program kerja MPK yang menampung aspirasi dari warga sekolah dan menyampaikan aspirasi tersebut ke pihak sekolah</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><img src="Image/FKB.jpg" alt="FKB"></div>
-                <h4>FKB</h4>
-                <p>Forum Komunikasi Berkelanjutan, adalah wadah yang bertujuan untuk menampung aspirasi, menyampaikan kendala, dan mengusulkan saran guna meningkatkan efektivitas kegiatan organisasi dan ekstrakurikuler di lingkungan sekolah.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><img src="Image/MISERA.jpg" alt="MISERA"></div>
-                <h4>MISERA</h4>
-                <p>Mid Semester Aspiration, adalah salah satu program kerja dari MPK SMA Negeri 2 Purwokerto. Yang berfokus pada aspirasi warga SMA Negeri 2 Purwokerto yang nantinya akan diteruskan kepada pihak sekolah setiap 1 semester sekali</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><img src="Image/HAKRAB.jpg" alt="HAKRAB"></div>
-                <h4>HAKRAB</h4>
-                <p>Hari Keakraban, adalah program kerja yang dirancang khusus bagi para anggota MPK. Program kerja ini berfungsi untuk meningkatkan keakraban serta kemampuan bekerjasama antar anggota MPK.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><img src="Image/Studi.jpg" alt="Studi Banding"></div>
-                <h4>Studi Banding</h4>
-                <p>Studi Banding, yaitu kegiatan kunjungan dari MPK sekolah lain ke MPK SMA Negeri 2 Purwokerto untuk saling bertukar informasi seputar MPK di sekolah masing-masing.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><img src="Image/GBHK.jpg" alt="GBHK"></div>
-                <h4>GBHK</h4>
-                <p>Garis Besar Haluan Kerja, adalah kegiatan belajar dan sosialisasi mengenai keserketariatan serta ketentuan pengumpulan proposal dan LPJ organisasi dan ekstrakulikuler</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-        </div>
-        <div class="footer-bottom">
-            <button onclick="document.location='https://www.instagram.com/mpksmadapwt/'">@MPKSMADA</button>
-        </div>
-    </footer>
-
     <script>
+        // Data siswa dari file Excel
+        const studentData = [
+            { no: 1, nis: "25173", name: "Aini Nur Marifah", class: "X-1", status: "LOLOS" },
+            { no: 2, nis: "25177", name: "Bonifasius Dimas Martin", class: "X-1", status: "LOLOS" },
+            { no: 3, nis: "25183", name: "Hasna Shiella Nur Hafidzah", class: "X-1", status: "LOLOS" },
+            { no: 4, nis: "25186", name: "Muhammad Revan Ramadhani Nuris", class: "X-1", status: "LOLOS" },
+            { no: 5, nis: "", name: "R. Jagadhita C", class: "X-1", status: "TIDAK LOLOS" },
+            { no: 6, nis: "", name: "Rulif Audris Dzulfiqar", class: "X-1", status: "TIDAK LOLOS" },
+            { no: 7, nis: "25204", name: "Yasmin Farah Ailatu Wiam", class: "X-1", status: "TIDAK LOLOS" },
+            { no: 8, nis: "25213", name: "Betari Lylafazya Ambalika", class: "X-2", status: "LOLOS" },
+            { no: 9, nis: "25214", name: "Damar Putra Aufar", class: "X-2", status: "LOLOS" },
+            { no: 10, nis: "25215", name: "Deka Afrianto", class: "X-2", status: "TIDAK LOLOS" },
+            { no: 11, nis: "25216", name: "Desta Bagus Pratama", class: "X-2", status: "LOLOS" },
+            { no: 12, nis: "25226", name: "Fidhel Augusta Fadhilah", class: "X-2", status: "TIDAK LOLOS" },
+            { no: 13, nis: "25231", name: "Kyran Aqila Lida", class: "X-2", status: "LOLOS" },
+            { no: 14, nis: "25235", name: "Merliyan Balqis Aquino", class: "X-2", status: "TIDAK LOLOS" },
+            { no: 15, nis: "25237", name: "Nabil Adwa Putra", class: "X-2", status: "TIDAK LOLOS" },
+            { no: 16, nis: "25246", name: "Aisha Hana Naira", class: "X-3", status: "TIDAK LOLOS" },
+            { no: 17, nis: "25248", name: "Almira Alycia Nasywa", class: "X-3", status: "LOLOS" },
+            { no: 18, nis: "25249", name: "Alyya Azka Sarifah", class: "X-3", status: "LOLOS" },
+            { no: 19, nis: "25250", name: "Angelina Devin Suntoro", class: "X-3", status: "LOLOS" },
+            { no: 20, nis: "25253", name: "Avisa Marva Athaya", class: "X-3", status: "TIDAK LOLOS" },
+            { no: 21, nis: "25255", name: "Bilqis Ihdaa Ni'amii", class: "X-3", status: "LOLOS" },
+            { no: 22, nis: "25274", name: "Safira Asari Eka Putri", class: "X-3", status: "TIDAK LOLOS" },
+            { no: 23, nis: "25279", name: "Zalfa Muna Azizah", class: "X-3", status: "TIDAK LOLOS" },
+            { no: 24, nis: "25287", name: "Ardhitya Bagus Aji Saputra", class: "X-4", status: "TIDAK LOLOS" },
+            { no: 25, nis: "25294", name: "Edra Dzaka Andes", class: "X-4", status: "TIDAK LOLOS" },
+            { no: 26, nis: "25297", name: "Harits Anandra Prabhaswara", class: "X-4", status: "TIDAK LOLOS" },
+            { no: 27, nis: "", name: "Hasna Ferian Saffura", class: "X-4", status: "TIDAK LOLOS" },
+            { no: 28, nis: "25305", name: "Mikhael Oktaviano Mardiana", class: "X-4", status: "TIDAK LOLOS" },
+            { no: 29, nis: "25307", name: "Nur Fauzi", class: "X-4", status: "TIDAK LOLOS" },
+            { no: 30, nis: "25310", name: "Rajbani Abdillah", class: "X-4", status: "LOLOS" },
+            { no: 31, nis: "25316", name: "Alauddin Suko Ramatory", class: "X-5", status: "TIDAK LOLOS" },
+            { no: 32, nis: "25335", name: "Maritza Almira Khansa Giva Maraville", class: "X-5", status: "TIDAK LOLOS" },
+            { no: 33, nis: "25334", name: "Mada Putra Sandiyudha", class: "X-5", status: "TIDAK LOLOS" },
+            { no: 34, nis: "25336", name: "Muhammad Davine Aydin Elfreda", class: "X-5", status: "LOLOS" },
+            { no: 35, nis: "25337", name: "Mukti Dini Junaedi", class: "X-5", status: "TIDAK LOLOS" },
+            { no: 36, nis: "25338", name: "Nanang Tri Satrio", class: "X-5", status: "TIDAK LOLOS" },
+            { no: 37, nis: "25347", name: "Shiva Bimbim Gimnastyar", class: "X-5", status: "TIDAK LOLOS" },
+            { no: 38, nis: "25358", name: "Cessa Cahaya Rahmadhani", class: "X-6", status: "TIDAK LOLOS" },
+            { no: 39, nis: "25367", name: "Husna Dwi Khairunnisa", class: "X-6", status: "TIDAK LOLOS" },
+            { no: 40, nis: "", name: "Muhammad Fitzal Asfa Musakfar", class: "X-6", status: "TIDAK LOLOS" },
+            { no: 41, nis: "25378", name: "Noraya Aquilla", class: "X-6", status: "TIDAK LOLOS" },
+            { no: 42, nis: "", name: "Raisya Asadyl Azhar", class: "X-6", status: "TIDAK LOLOS" },
+            { no: 43, nis: "25384", name: "Saskia Dwi Ananta", class: "X-6", status: "LOLOS" },
+            { no: 44, nis: "25385", name: "Syifana Amalia Zahra", class: "X-6", status: "LOLOS" },
+            { no: 45, nis: "25386", name: "Ahmad Rifai", class: "X-7", status: "TIDAK LOLOS" },
+            { no: 46, nis: "25395", name: "Charles Rajendra Elvaretta", class: "X-7", status: "TIDAK LOLOS" },
+            { no: 47, nis: "25396", name: "Chigra Apta Nirbhaya", class: "X-7", status: "LOLOS" },
+            { no: 48, nis: "25397", name: "Danish Fairuz Elang", class: "X-7", status: "TIDAK LOLOS" },
+            { no: 49, nis: "25400", name: "Fadhiana Putri Latifa", class: "X-7", status: "LOLOS" },
+            { no: 50, nis: "25405", name: "Maulana Hafidz Afifudin", class: "X-7", status: "LOLOS" },
+            { no: 51, nis: "25408", name: "Mizanul Fikri Al Afgani", class: "X-7", status: "TIDAK LOLOS" },
+            { no: 52, nis: "25427", name: "Aqila Ath Thahira Zahra", class: "X-8", status: "TIDAK LOLOS" },
+            { no: 53, nis: "25431", name: "Aufar Briihan Ebrahimi", class: "X-8", status: "LOLOS" },
+            { no: 54, nis: "25433", name: "Dzaky Fadilatur Rohman", class: "X-8", status: "TIDAK LOLOS" },
+            { no: 55, nis: "", name: "Intan Aprilia Dewi", class: "X-8", status: "TIDAK LOLOS" },
+            { no: 56, nis: "25442", name: "Isya Patih Romadhon", class: "X-8", status: "TIDAK LOLOS" },
+            { no: 57, nis: "25445", name: "Labib Noval Apriliano", class: "X-8", status: "TIDAK LOLOS" },
+            { no: 58, nis: "25450", name: "Renaisans Vedanada", class: "X-8", status: "TIDAK LOLOS" },
+            { no: 59, nis: "25457", name: "Anissa Oktafiana Putri", class: "X-9", status: "TIDAK LOLOS" },
+            { no: 60, nis: "25465", name: "Delicia Taffy Fitrian", class: "X-9", status: "TIDAK LOLOS" },
+            { no: 61, nis: "25469", name: "Haidar Al Aziia", class: "X-9", status: "TIDAK LOLOS" },
+            { no: 62, nis: "25474", name: "Khonsa Tsabita Khoirunnisa", class: "X-9", status: "LOLOS" },
+            { no: 63, nis: "25481", name: "Nurlita", class: "X-9", status: "TIDAK LOLOS" },
+            { no: 64, nis: "25491", name: "Vanessa Angelina", class: "X-9", status: "TIDAK LOLOS" },
+            { no: 65, nis: "25492", name: "Vendri Yumna", class: "X-9", status: "LOLOS" },
+            { no: 66, nis: "25494", name: "Aira Mezzaluna Mustofa", class: "X-10", status: "LOLOS" },
+            { no: 67, nis: "25496", name: "Alyaa Najla Azaitun", class: "X-10", status: "TIDAK LOLOS" },
+            { no: 68, nis: "25498", name: "Athaya Yumna Quinnsya", class: "X-10", status: "TIDAK LOLOS" },
+            { no: 69, nis: "25504", name: "Cressa Alia Nugroho", class: "X-10", status: "LOLOS" },
+            { no: 70, nis: "25523", name: "Riana Puspitasari", class: "X-10", status: "TIDAK LOLOS" },
+            { no: 71, nis: "25527", name: "Zyzy Kanaya Ayu Putri", class: "X-10", status: "TIDAK LOLOS" },
+            { no: 72, nis: "25538", name: "Dalilah Salsabila Claresta", class: "X-11", status: "LOLOS" },
+            { no: 73, nis: "25540", name: "Elvina Nadia Putri", class: "X-11", status: "TIDAK LOLOS" },
+            { no: 74, nis: "25541", name: "Hans Arkana Faishal Afif", class: "X-11", status: "LOLOS" },
+            { no: 75, nis: "25542", name: "Helena Trisha Briliantin", class: "X-11", status: "TIDAK LOLOS" },
+            { no: 76, nis: "25543", name: "Hibatullah Al Musyaffa Adiputra", class: "X-11", status: "TIDAK LOLOS" },
+            { no: 77, nis: "25551", name: "Meysila Pristan Esya", class: "X-11", status: "LOLOS" },
+            { no: 78, nis: "25554", name: "Muthia Salma", class: "X-11", status: "TIDAK LOLOS" },
+            { no: 79, nis: "25563", name: "Yessi Yuaniar Damarani", class: "X-11", status: "TIDAK LOLOS" }
+        ];
+
+        // Fungsi untuk mengisi tabel dengan data siswa (tanpa status)
+        function populateStudentTable() {
+            const tableBody = document.querySelector('#studentsTable tbody');
+            
+            studentData.forEach((student) => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${student.no}</td>
+                    <td>${student.nis || '-'}</td>
+                    <td>${student.name}</td>
+                    <td>${student.class}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
         // Mobile menu toggle
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const navMenu = document.getElementById('nav-menu');
 
         mobileMenuToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
+            
+            // Mengubah ikon hamburger menjadi X ketika menu aktif
+            if (navMenu.classList.contains('active')) {
+                this.innerHTML = '✕';
+            } else {
+                this.innerHTML = '☰';
+            }
         });
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
+                mobileMenuToggle.innerHTML = '☰';
             });
         });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = 80;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Form submission
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
-                this.reset();
-            });
-        }
 
         // Header background on scroll
         window.addEventListener('scroll', function() {
@@ -854,31 +485,9 @@
                 header.classList.remove('scrolled');
             }
         });
-        
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe service cards for animation
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(card);
-        });
+
+        // Mengisi tabel data siswa saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', populateStudentTable);
     </script>
-    
 </body>
 </html>
-
